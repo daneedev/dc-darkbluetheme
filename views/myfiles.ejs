@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= cloudname %> | My Files</title>
+  </head>
+  <body>
+    <style>
+        body {
+            background-color: #454d55;
+            padding: 0;
+            margin: 0;
+        }
+               h1 {
+    color: #2192FF;
+    margin-top: 10%;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: xxx-large;
+
+}
+        h2 {
+            color: #2192FF;
+    margin-top: -5px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: x-large;
+        
+        }
+        h3 {
+            color: #2192FF;
+    margin-top: -5px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+        
+        }
+
+        input[type="submit"] {
+        color: white;
+    height: 60px;
+    width: 250px;
+    background-color: #2192FF;
+    font-size: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+    }
+    
+    input[type="submit"]:hover {
+        color: #2192FF;
+    height: 60px;
+    width: 250px;
+    background-color: white;
+    font-size: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+    }
+        .footer {
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+    /* Height of the footer*/
+    height: 40px;
+    background: black;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+a {
+  color: #2192FF;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    display: inline-block;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  margin-left: auto;
+    margin-right: auto;
+}
+
+td, th {
+  border: 1px solid #2192FF;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+  color: #2192FF;
+  font-family: "Montserrat", sans-serif;
+}
+img {
+  width:40px;
+  height: auto;
+}
+
+progress {
+	display:block;
+	width:300px;
+	height:50px;
+	margin-top: 10px;
+	background:none;
+	border: 0;
+	border-radius:50px;
+	text-align: left;
+	position:relative;
+    font-family:"Montserrat", sans-serif;
+    font-size:15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+progress::-webkit-progress-bar {
+	height:40px;
+	width:250px;
+	margin: auto;
+	background-color:whitesmoke;
+	border-radius:100px;
+}
+progress::-webkit-progress-value {
+	display:inline-block;
+	background: #2192FF;
+	border-radius:100px;
+}
+
+p {
+  color: #2192FF;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+    </style>
+    <h1><%= cloudname %> </h1>
+    <h2>My Files</h2>
+    <progress value=<%= usedStorage %> max=<%= maxStorage %> ></progress>
+    <h3><%= usedStorage %> MB / <%= maxStorage %> MB </h3>
+    <table>
+      <thead>
+      <tr>
+        <th>Preview</th>
+        <th>File name</th>
+        <th>Is shared?</th>
+        <th>Size</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% files.forEach((file) => { %> 
+        <tr>
+        <% let link = "/delete/" + file %>
+        <% let link2 = "/rename/" + file %>
+        <% let link3 = "/download/" + file %>
+        <% let link4 = "/addsf/" + file %> 
+        <% let link5 = "/rmsf/" + file %> 
+        <% let link6 = "/playvideo/" + `${req.user.username}/` + file %> 
+        <% let link7 = "/playaudio/" + `${req.user.username}/` + file %>
+        <% let link8 = "/addsubtitles/" + `${req.user.username}/` + file %>
+        <% let link9 = "/rmsubtitles/" + `${req.user.username}/` + file %>
+        <% let isShared; %> 
+        <% let size = fs.statSync(__dirname + "/.."  + config.uploadsfolder + `${req.user.username}/` + file).size / (1024 * 1024) %> 
+        <% if (isImg(__dirname + "/.." + config.uploadsfolder + `${req.user.username}/` + file)) { %> 
+          <td><img src=<%= "/files/" + req.user.username + "/" + file%> ></td>
+        <% } else if (isVid(__dirname + "/.." + config.uploadsfolder + `${req.user.username}/` + file)) { %> 
+          <% if (file.split(".").pop() == "mkv") {%> 
+            <td>Not supported</td>
+          <% } else { %>
+          <td><a href=<%= link6 %> ><span class="material-icons">play_circle</span></a>&nbsp;<a href=<%= link8 %>><span class="material-icons">subtitles</span></a>&nbsp;<a href=<%= link9 %>><span class="material-icons">subtitles_off</span></a></td>
+          <% } %> 
+          <% } else if (isAudio(file)) { %>
+          <td><a href=<%= link7 %>><span class="material-icons">headphones</span></a></td>
+        <% } else { %> 
+          <td>-</td>
+        <% } %> 
+        <td><%= file %></td>
+        <% if (sharedFiles.includes(file)) { %>
+          <td>Yes</td>
+        <% } else { %>
+          <td>No</td>
+        <% } %>   
+          <% if (size.toFixed(2) > 1024) { %>
+            <td><%= size.toFixed(2) / 1000 %> GB </td>
+          <% } else { %> 
+          <td><%= size.toFixed(2) %> MB </td>
+          <% } %>
+          <% if (sharedFiles.includes(file)) { %> 
+          <td><a href=<%= link3%>><span class="material-icons">cloud_download</span></a>&nbsp;<a href=<%= link2 %>><span class="material-icons">edit</span></a>&nbsp;<a href=<%= link5 %>><span class="material-icons">stop_screen_share</span></a>&nbsp;<a href=<%= link %>><span class="material-icons">delete</span></a></td>
+        <% } else { %>
+          <td><a href=<%= link3%>><span class="material-icons">cloud_download</span></a>&nbsp;<a href=<%= link2 %>><span class="material-icons">edit</span></a>&nbsp;<a href=<%= link4 %>><span class="material-icons">screen_share</span></a>&nbsp;<a href=<%= link %>><span class="material-icons">delete</span></a></td> 
+        <% } %> 
+        </tr>
+        <% }) %> 
+    </tbody>
+    </table>
+      <form action="/">
+        <input type="submit" href="/" value="Back to home page"></input>
+        </form>
+    <footer>
+             <div class="footer"><%= cloudname %> © 2022 - 2023 | Developed by <a href="https://github.com/DaneeSkripter">DaneeSkripter</a></div>
+    
+    </footer>
+  </body>
+</html>

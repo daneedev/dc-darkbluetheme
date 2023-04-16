@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+    <title><%= cloudname %></title>
+</head>
+<body>
+    <style>
+        body {
+    background-color: #454d55;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.editaccount {
+    color: white;
+    height: 60px;
+    width: 125px;
+    background-color: #2192FF;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: auto;
+    margin-top: -60px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.editaccount:hover {
+    color: #2192FF;
+    height: 60px;
+    width: 125px;
+    background-color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: auto;
+    margin-top: -60px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.delaccount {
+    color: white;
+    height: 60px;
+    width: 125px;
+    background-color: #2192FF;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 135px;
+    margin-right: auto;
+    margin-top: -60px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.delaccount:hover {
+    color: #2192FF;
+    height: 60px;
+    width: 125px;
+    background-color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 135px;
+    margin-right: auto;
+    margin-top: -60px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.logout {
+    color: white;
+    height: 60px;
+    width: 125px;
+    background-color: #2192FF;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.logout:hover {
+    color: #2192FF;
+    height: 60px;
+    width: 125px;
+    background-color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+
+.myfiles {
+    color: white;
+    height: 60px;
+    width: 125px;
+    background-color: #2192FF;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 140px;
+    margin-top: -60px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.myfiles:hover {
+    color: #2192FF;
+    height: 60px;
+    width: 125px;
+    background-color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 140px;
+    margin-top: -60px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+.admin {
+    color: white;
+    height: 60px;
+    width: 125px;
+    background-color: #2192FF;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 280px;
+    margin-top: -60px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.admin:hover {
+    color: #2192FF;
+    height: 60px;
+    width: 125px;
+    background-color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 280px;
+    margin-top: -60px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+label[for="file"] {
+    color: white;
+    height: 60px;
+    width: 250px;
+    background-color: #2192FF;
+    font-size: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+label[for="file"]:hover {
+    color: #2192FF;
+    height: 60px;
+    width: 250px;
+    background-color: white;
+    font-size: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.upload {
+    color: white;
+    height: 60px;
+    width: 250px;
+    background-color: #2192FF;
+    font-size: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.upload:hover {
+    color: #2192FF;
+    height: 60px;
+    width: 250px;
+    background-color: white;
+    font-size: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+h1 {
+    color: #2192FF;
+    margin-top: 10%;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: xxx-large;
+
+}
+
+.subtitle {
+    color: #2192FF;
+    margin-top: -5px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: x-large;
+}
+
+.footer {
+            position: fixed;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            /* Height of the footer*/
+            height: 40px;
+            background: black;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            text-align: center;
+        }
+
+input[type="text"] {
+    height: 60px;
+    width: 250px;
+    background-color: white;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+progress {
+	display:block;
+	width:300px;
+	height:50px;
+	margin-top: 10px;
+	background:none;
+	border: 0;
+	border-radius:50px;
+	text-align: left;
+	position:relative;
+    font-family:"Montserrat", sans-serif;
+    font-size:15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+progress::-webkit-progress-bar {
+	height:40px;
+	width:250px;
+	margin: auto;
+	background-color:whitesmoke;
+	border-radius:100px;
+}
+progress::-webkit-progress-value {
+	display:inline-block;
+	background: #2192FF;
+	border-radius:100px;
+}
+
+h3 {
+          color: #2192FF;;
+          display: flex;
+          margin-top: 20px;
+          justify-content: center;
+          align-items: center;
+          font-family: "Montserrat", sans-serif;
+          font-size: large;
+      
+      }
+
+::-webkit-input-placeholder {
+    text-align: center;
+  }
+  
+  :-moz-placeholder {
+    text-align: center;
+  }
+  :-ms-input-placeholder {  
+    text-align: center; 
+ }
+
+ .storage {
+    color: #2192FF;
+    margin-top: -5px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+ }
+
+    </style>
+<script>
+function _(el) {
+  return document.getElementById(el);
+}
+
+function progressBar() {
+  var file = _("file").files[0];
+  // alert(file.name+" | "+file.size+" | "+file.type);
+  var formdata = new FormData();
+  formdata.append("file", file);
+  var ajax = new XMLHttpRequest();
+  ajax.upload.addEventListener("progress", progressHandler, false);
+  ajax.addEventListener("load", completeHandler, false);
+  ajax.addEventListener("error", errorHandler, false);
+  ajax.addEventListener("abort", abortHandler, false);
+  ajax.open("POST", "/upload/", true); 
+  ajax.send(formdata);
+}
+
+function progressHandler(event) {
+  var percent = (event.loaded / event.total) * 100;
+  _("progressBar").value = Math.round(percent);
+  _("status").innerHTML = Math.round(percent) + "%";
+}
+
+function completeHandler(event) {
+  _("status").innerHTML = event.target.responseText;
+  _("progressBar").value = 0; //wil clear progress bar after successful upload
+}
+
+function errorHandler(event) {
+  _("status").innerHTML = "Upload Failed";
+}
+
+function abortHandler(event) {
+  _("status").innerHTML = "Upload Aborted";
+}
+</script>
+
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit" class="logout">Log Out</button>
+        </form>
+        <form action="/myfiles", method="get">
+            <button type="submit" class="myfiles">My Files</button>
+        </form> 
+        <% if (isAdmin == true) { %>  
+        <form action="/admin", method="get">
+            <button type="submit" class="admin">Admin Panel</button>
+        </form> 
+        <% } %>
+        <form action="/editmyaccount">
+            <button type="submit" class="editaccount">Edit account</button>
+        </form>
+        <form action="/delmyaccount">
+            <button type="submit" class="delaccount">Delete account</button>
+        </form>
+    <h1><%= cloudname %></h1>
+    <h2 class="subtitle">Welcome, <%= username %> <img title=<%= user.role %> src=<%= badge %> width="30" height="30"></img>!</h2> 
+    <progress value=<%= usedStorage %> max=<%= maxStorage %> ></progress>
+    <h3 class="storage"><%= usedStorage %> MB / <%= maxStorage %> MB </h3>
+    <form id="form" action="/upload/" method="post", enctype="multipart/form-data" target="_blank">
+        <label for="file" ><span class="material-icons">upload_file</span>&nbsp;Upload your file</label>
+        <input type="file" name="file" id="file" onchange="progressBar()" required hidden></input>
+        <progress id="progressBar" class="progressBar" value="0" max="100"></progress>
+        <h3 id="status"></h3>
+    </form>
+    <footer>
+               <div class="footer"><%= cloudname %> © 2022 - 2023 | Developed by <a href="https://github.com/DaneeSkripter">DaneeSkripter</a></div>
+    
+    </footer>
+</body>
+</html>
